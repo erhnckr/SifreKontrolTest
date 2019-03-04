@@ -1,0 +1,48 @@
+import java.security.SecureRandom;
+public class No11 {
+	
+	
+		
+		    private static SecureRandom random = new SecureRandom();
+		    private static final String BHARF = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		    private static final String KHARF = "abcdefghijklmnopqrstuvwxyz";
+		    private static final String RAKAM = "0123456789";
+		    private static final String OZELKARAKTER = "!@#$%^&*_=+-/";
+
+		    public static String generatePassword(int len, String dic) {
+		    String result = "";
+		    for (int i = 0; i < len; i++) {
+		        int index = random.nextInt(dic.length());
+		        result += dic.charAt(index);
+		    }
+		    return result;
+		    }
+
+		    public static void main(String[] args) {
+		    System.out.println("Sifre olusturma");
+		    System.out.println();
+		    String[] liste = new String[120];
+		    int len;
+		    
+		     len = 8;
+		    System.out.println("Buyukharf + rakam + özel karakter,kucukharften olusuyo  " + len + " karakterdir: ");
+		    for(int a=0;a<100;a++) {
+		    String  password = generatePassword(len, BHARF + KHARF + RAKAM + OZELKARAKTER);
+		    
+		    for(int f=0;f<7;f++)
+		    if(password.charAt(f) ==password.charAt(f+1)) {
+		    	System.out.println("TEKRAR  "+password);
+		  
+		    }
+	liste[a]=(password);
+		
+				
+			}
+			for(int k=0;k<100;k++)
+		   	System.out.println(k +"Liste  "+ liste[k]);
+		
+		    	 
+		    }
+		   
+		}
+
